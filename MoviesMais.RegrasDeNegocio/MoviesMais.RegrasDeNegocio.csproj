@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>930dad64-43b7-4e57-a6b3-348fdeaea76f</ProjectGuid>
+    <ProjectGuid>aa8fac1f-fd36-48ff-9989-07a320a16329</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MoviesMais.RegrasDeNegocio</RootNamespace>

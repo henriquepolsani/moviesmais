@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>4efe6a7d-11ea-4301-bb29-e0cdcd3137cd</ProjectGuid>
+    <ProjectGuid>1595f787-8420-43af-9a86-d010b6436d57</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MoviesMais.AcessoDados</RootNamespace>
