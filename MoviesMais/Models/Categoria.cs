@@ -28,7 +28,8 @@ namespace MoviesMais.Models
 
             while (dr.Read())
             {
-                retornoConsulta.Add(new Categoria { 
+                retornoConsulta.Add(new Categoria
+                {
                     Codigo = Convert.ToInt32(dr["Codigo"]),
                     Descricao = dr["Descricao"].ToString(),
                     FaixaEtaria = Convert.ToInt32(dr["FaixaEtaria"]),
@@ -64,6 +65,15 @@ namespace MoviesMais.Models
             }
 
             return retornoConsulta;
+        }
+        public int InserirCategoria(Categoria categoria)
+        {
+            string comandoSQL = "Inserir into Categoria (Nome, FaixaEtaria, ApareceNoMenu, Descricao) values (@Nome, @FaixaEtaria, @ApareceNoMenu, @Descricao);";
+
+            MySqlConnection conexao = new MySqlConnection("Server=localhost;Database=MoviesMais;Uid=root;Pwd=;"); //Ponte
+            MySqlCommand comando = new MySqlCommand(comandoSQL, conexao);
+
+            conexao.Open();
         }
     }
 }
