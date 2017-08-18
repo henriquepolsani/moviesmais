@@ -12,6 +12,7 @@ namespace MoviesMais.Models
         public string Nome { get; set; }
         public int FaixaEtaria { get; set; }
         public string Descricao { get; set; }
+        public bool ApareceNoMenu { get; set; }
 
         public List<Categoria> ConsultaCategorias()
         {
@@ -68,12 +69,32 @@ namespace MoviesMais.Models
 
         public int InserirCategoria(Categoria categoria)
         {
+            int codigoGerado = 0;
+
             string comandoSQL = "Insert into Categoria (Nome, FaixaEtaria, ApareceNoMenu, Descricao) values (@Nome, @FaixaEtaria, @ApareceNoMenu, @Descricao);";
 
             MySqlConnection conexao = new MySqlConnection("Server=localhost;Database=MoviesMais;Uid=root;Pwd=;");
             MySqlCommand comando = new MySqlCommand(comandoSQL, conexao);
 
+            comando.Parameters.AddWithValue("@Nome", categoria.Nome);
+            comando.Parameters.AddWithValue("@FaixaEtaria", categoria.FaixaEtaria);
+            comando.Parameters.AddWithValue("@ApareceNoMenu", categoria.ApareceNoMenu);
+            comando.Parameters.AddWithValue("@Descricao", categoria.Descricao);
+
             conexao.Open();
+
+            comando.ExecuteNonQuery();
+
+            comando = new MySqlCommand("SELECT MAX(Codigo) from Categoria", conexao);
+
+            MySqlDataReader dr = comando.ExecuteReader();
+
+            while (dr.Read())
+            {
+                codigoGerado = Convert.ToInt32(dr[0]);
+            }
+
+            return codigoGerado;
         }
     }
 }
